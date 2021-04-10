@@ -5,16 +5,14 @@ import (
 	"testing"
 	"time"
 
-	"github.com/victorspringer/http-cache"
+	cache "github.com/polynomialspace/http-cache"
 )
 
 var a cache.Adapter
 
 func TestSet(t *testing.T) {
-	a = NewAdapter(&RingOptions{
-		Addrs: map[string]string{
-			"server": ":6379",
-		},
+	a = NewAdapter(&RedisOptions{
+		Addr: ":6379",
 	})
 
 	tests := []struct {
